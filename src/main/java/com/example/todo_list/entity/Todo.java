@@ -9,9 +9,11 @@ public class Todo {
     @MongoId(FieldType.OBJECT_ID)
     private String id;
     private String description;
-    private boolean done;
 
-    public Todo(String id, String description, boolean done) {
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean done;
+
+    public Todo(String id, String description, Boolean done) {
         this.id = id;
         this.description = description;
         this.done = done;
@@ -25,10 +27,6 @@ public class Todo {
         return description;
     }
 
-    public boolean isDone() {
-        return done;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -37,7 +35,11 @@ public class Todo {
         this.description = description;
     }
 
-    public void setDone(boolean done) {
+    public void setDone(Boolean done) {
         this.done = done;
+    }
+
+    public Boolean getDone() {
+        return done;
     }
 }

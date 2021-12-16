@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("todos")
 @CrossOrigin
+
 public class TodoController {
     private TodoService todoService;
 
@@ -27,5 +28,17 @@ public class TodoController {
     @PostMapping
     public Todo addNewTodo(@RequestBody  Todo newTodo) {
         return this.todoService.addNewTodo(newTodo);
+    }
+
+    @PutMapping("/{id}")
+    public Todo updateTodo(@PathVariable String id , @RequestBody Todo todoPatch)
+    {
+        return this.todoService.updateTodo(id , todoPatch);
+    }
+
+    @DeleteMapping("/{id}")
+    public Todo deleteTodo(@PathVariable String id)
+    {
+        return this.todoService.deleteTodo(id);
     }
 }
