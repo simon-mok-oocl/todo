@@ -3,15 +3,14 @@ package com.example.todo_list.controller;
 import com.example.todo_list.entity.Todo;
 import com.example.todo_list.service.TodoService;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("todos")
+@CrossOrigin
 public class TodoController {
     private TodoService todoService;
 
@@ -25,4 +24,8 @@ public class TodoController {
         return this.todoService.findAll();
     }
 
+    @PostMapping
+    public Todo addNewTodo(@RequestBody  Todo newTodo) {
+        return this.todoService.addNewTodo(newTodo);
+    }
 }
