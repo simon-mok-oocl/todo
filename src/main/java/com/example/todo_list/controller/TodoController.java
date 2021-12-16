@@ -3,6 +3,7 @@ package com.example.todo_list.controller;
 import com.example.todo_list.entity.Todo;
 import com.example.todo_list.service.TodoService;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class TodoController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Todo addNewTodo(@RequestBody  Todo newTodo) {
         return this.todoService.addNewTodo(newTodo);
     }
