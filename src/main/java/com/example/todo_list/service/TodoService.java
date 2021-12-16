@@ -18,10 +18,6 @@ public class TodoService {
 
     public List<Todo> findAll()
     {
-//        Todo test = new Todo("1" , "test todo" , true);
-//        List<Todo> result = new ArrayList<>();
-//        result.add(test);
-
         return this.todoRepository.findAll();
     }
 
